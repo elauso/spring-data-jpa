@@ -12,4 +12,10 @@ class ProductService(private val repository: ProductRepository) {
 
     fun findByFilter(findProductFilter: FindProductFilter) =
         repository.findByFilter(findProductFilter).map { it.toDto() }
+
+    fun findByName(name: String) =
+        repository.findByName(name).map { it.toDto() }
+
+    fun findByDescription(description: String) =
+        repository.findByDescription(description).map { it.toDto() }
 }

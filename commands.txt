@@ -1,6 +1,6 @@
 
-curl -X GET -H "Accept: application/json" 'http://localhost:8080/owners?name=Bob&email=test'
+curl -X GET -H "Accept: application/json" 'http://localhost:8080/products/find-by-filter?name=Laptop&ownerName=Alice'
 
-curl -X GET -H "Accept: application/json" 'http://localhost:8080/products?name=Laptop&ownerName=Alice'
+curl -X GET -H "Accept: application/json" 'http://localhost:8080/products/find-by-filter?ownerEmail=bob@example.com'
 
-curl -X GET -H "Accept: application/json" 'http://localhost:8080/products?ownerEmail=bob@example.com'
+curl -X GET -H "Accept: application/json" 'http://localhost:8080/products/find-by-description?description=ph'

@@ -40,6 +40,11 @@ class ProductRepositoryCustomImpl : ProductRepositoryCustom {
         }
 
         query.select(product).where(cb.and(*predicates.toTypedArray()))
-        return entityManager.createQuery(query).resultList
+
+        val fetchGraph = entityManager.createEntityGraph(Product::class.java)
+        fetchGraph.addSubgraph<Owner>("owner")
+
+        return entityManager.createQuery(query)
+            .setHint("javax.persistence.loadgraph", fetchGraph).resultList
     }
 }
